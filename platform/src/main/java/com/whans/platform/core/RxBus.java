@@ -11,10 +11,10 @@ import rx.subjects.Subject;
 
 public final class RxBus {
     private static volatile RxBus defaultInstance;
-    private final Subject bus;
+    private final Subject mBus;
 
     public RxBus() {
-        bus = new SerializedSubject<>(PublishSubject.create());
+        mBus = new SerializedSubject<>(PublishSubject.create());
     }
 
     public static RxBus getDefault() {
@@ -30,10 +30,10 @@ public final class RxBus {
     }
 
     public void send(Object object) {
-        bus.onNext(object);
+        mBus.onNext(object);
     }
 
     public <T> Observable<T> toObserverable(Class<T> eventType) {
-        return bus.ofType(eventType);
+        return mBus.ofType(eventType);
     }
 }

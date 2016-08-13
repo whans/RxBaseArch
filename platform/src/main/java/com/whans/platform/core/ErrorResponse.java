@@ -9,5 +9,5 @@ import java.io.Serializable;
  */
 public class ErrorResponse implements Serializable {
     @SerializedName("error")
-    public String error;
+    public String mError;
 }

@@ -1,5 +1,7 @@
 package com.whans.platform.utils;
 
+import com.orhanobut.logger.LogLevel;
+
 import org.acra.ACRA;
 /**
  * @author hanson.
@@ -13,16 +15,16 @@ public final class Logger {
         switch (level) {
             case LOG_LEVEL_FULL:
                 com.orhanobut.logger.Logger.init(logTag)
-                        .setLogLevel(LogLevel.FULL)
-                        .setMethodOffset(1)
-                        .setMethodCount(1)
+                        .logLevel(LogLevel.FULL)
+                        .methodOffset(1)
+                        .methodCount(1)
                         .hideThreadInfo();
                 break;
             case LOG_LEVEL_NONE:
-                com.orhanobut.logger.Logger.init().setLogLevel(LogLevel.NONE);
+                com.orhanobut.logger.Logger.init().logLevel(LogLevel.NONE);
                 break;
             default:
-                com.orhanobut.logger.Logger.init().setLogLevel(LogLevel.NONE);
+                com.orhanobut.logger.Logger.init().logLevel(LogLevel.NONE);
         }
     }
 

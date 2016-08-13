@@ -36,6 +36,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.1.1'
     testCompile 'junit:junit:4.12'
+    compile rootProject.ext.dependencies["logger"]
     compile rootProject.ext.dependencies["rxjava"]
     compile rootProject.ext.dependencies["support-annotations"]
     compile rootProject.ext.dependencies["retrofit"]
@@ -46,5 +47,4 @@ dependencies {
     compile rootProject.ext.dependencies["okhttp3"]
     compile rootProject.ext.dependencies["acra"]
     compile rootProject.ext.dependencies["logging-interceptor"]
-    compile rootProject.ext.dependencies["logger"]
 }

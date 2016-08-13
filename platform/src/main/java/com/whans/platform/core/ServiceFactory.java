@@ -114,7 +114,7 @@ public final class ServiceFactory {
                 Logger.handleException(e);
             }
 
-            return errorResponse.error;
+            return errorResponse.mError;
         }
         return null;
     }
