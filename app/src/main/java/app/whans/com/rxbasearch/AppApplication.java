@@ -1,7 +1,9 @@
 package app.whans.com.rxbasearch;
 
 import android.app.Application;
+import android.content.Context;
 
+import org.acra.ACRA;
 import org.acra.annotation.ReportsCrashes;
 import org.acra.sender.HttpSender;
 
@@ -20,5 +22,13 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        if (!BuildConfig.DEBUG) {
+            ACRA.init(this);
+        }
     }
 }
