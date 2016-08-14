@@ -1,7 +1,7 @@
 package com.whans.platform.widget;
 
 import android.content.Context;
-import android.graphics.Rect;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatEditText;
@@ -23,21 +23,38 @@ public class PasswordEditText extends AppCompatEditText {
 
     public PasswordEditText(Context context) {
         super(context);
-        init(null);
+        init(context, null);
     }
 
     public PasswordEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs);
+        init(context, attrs);
     }
 
     public PasswordEditText(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(attrs);
+        init(context, attrs);
     }
 
-    private void init(AttributeSet attrs) {
+    private void init(Context context, AttributeSet attrs) {
         mIsShowingPassword = false;
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.PasswordEditText, 0, 0);
+        if (array.hasValue(R.styleable.PasswordEditText_app_ic_hide)) {
+            int hideRes = array.getResourceId(R.styleable.PasswordEditText_app_ic_hide, 0);
+            if (hideRes != 0) {
+                mVisibilityIndicatorHide = hideRes;
+            }
+        }
+
+        if (array.hasValue(R.styleable.PasswordEditText_app_ic_hide)) {
+            int showRes = array.getResourceId(R.styleable.PasswordEditText_app_ic_show, 0);
+            if (showRes != 0) {
+                mVisibilityIndicatorShow = showRes;
+            }
+        }
+
+        array.recycle();
+
         setInputType(EditorInfo.TYPE_CLASS_TEXT | EditorInfo.TYPE_TEXT_VARIATION_PASSWORD, true);
         showPasswordVisibilityIndicator(true);
     }
@@ -61,9 +78,9 @@ public class PasswordEditText extends AppCompatEditText {
 
     private void showPasswordVisibilityIndicator(boolean show) {
         if (show) {
-            Drawable original = mIsShowingPassword ?
-                    ContextCompat.getDrawable(getContext(), mVisibilityIndicatorHide) :
-                    ContextCompat.getDrawable(getContext(), mVisibilityIndicatorShow);
+            Drawable original = mIsShowingPassword
+                    ? ContextCompat.getDrawable(getContext(), mVisibilityIndicatorHide)
+                    : ContextCompat.getDrawable(getContext(), mVisibilityIndicatorShow);
             original.mutate();
 
             setCompoundDrawablesWithIntrinsicBounds(getCompoundDrawables()[0], null, original, null);

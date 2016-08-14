@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PasswordEditText">
+        <attr name="app_ic_show" format="integer" />
+        <attr name="app_ic_hide" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="DeleteEditText">
+        <attr name="app_ic_delete" format="integer" />
+    </declare-styleable>
+</resources>
