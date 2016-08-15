@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.fernandocejas.frodo'
+apply plugin: 'com.jakewharton.butterknife'
 apply from: file("${rootDir}/config/quality.gradle")
 
 android {
@@ -47,4 +48,5 @@ dependencies {
     compile rootProject.ext.dependencies["okhttp3"]
     compile rootProject.ext.dependencies["acra"]
     compile rootProject.ext.dependencies["logging-interceptor"]
+    compile rootProject.ext.dependencies["butterknife"]
 }

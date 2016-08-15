@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.fernandocejas.frodo'
+apply plugin: 'android-apt'
 apply from: file("${rootDir}/config/quality.gradle")
 
 android {
@@ -36,7 +37,7 @@ dependencies {
     testCompile rootProject.ext.dependencies["junit"]
     compile rootProject.ext.dependencies["design"]
     compile rootProject.ext.dependencies["butterknife"]
-    compile rootProject.ext.dependencies["butterknife-parent"]
+    apt rootProject.ext.dependencies["butterknife-compiler"]
     compile rootProject.ext.dependencies["recyclerview-v7"]
     compile rootProject.ext.dependencies["cardview-v7"]
     compile rootProject.ext.dependencies["support-v4"]

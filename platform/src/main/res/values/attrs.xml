@@ -8,4 +8,8 @@
     <declare-styleable name="DeleteEditText">
         <attr name="app_ic_delete" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="AutoCompleteEditText">
+        <attr name="app_txt_hint" format="reference" />
+    </declare-styleable>
 </resources>
